@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This api process a url and parse html using Nokogiri gem, then using the css method searches for h1,h2,h3 tags and search for links then classifies them into hashes that are save on DB as JSON to easy process.
 
-Things you may want to cover:
+Headers are save in a json structure like this:
+```
+{
+  "h1":["head1", "head2"...],
+  "h2":["head1", "head2"...],
+  "h3":["head1", "head2"...],
+}
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Links are save in a json structure like this:
+```
+[
+  {
+    "url": "http://somesite.com",
+    "text": "original text from the link"
+  }
+  ...
+]
+```
